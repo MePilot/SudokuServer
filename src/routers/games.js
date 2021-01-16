@@ -1,7 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 const Sudoku = require('../sudoku.js')
-
+const HardGame = require('../models/hardGame')
 /* 
 router.get('/hard1Game', function(req, res) {
     console.log('REQUEST')
@@ -24,7 +24,7 @@ router.get('/hard1Game', function(req, res) {
         let game = new Sudoku(size)
         let solutions
 
-        if(Number(diff)==0.4) {
+        if(Number(diff)==0.4 && size==9) {
 
             HardGame.findOneRandom(function(err, result) {
                 if (!err) {
@@ -43,7 +43,7 @@ router.get('/hard1Game', function(req, res) {
                 }
         
                 while(solutions>1)
-                res.send({mat:game.mat, hiddenMat:game.hiddenMat,size:game.size})
+                res.send({matrix:game.matrix, hiddenMatrix:game.hiddenMat,size:game.size})
             }
         
         console.log(req.query.game)

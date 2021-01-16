@@ -61,7 +61,7 @@ async function runGame() {
     
     console.log(game)
 
-    printScreen(game.hiddenMat,game.size)
+    printScreen(game.hiddenMatrix, game.size)
 
 }
 

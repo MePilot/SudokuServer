@@ -40,12 +40,13 @@ async function fillGames() {
 
   try {
     let games = await HardGame.find({})
-    while (games.length!=10) {
+    while (games.length!=100) {
       let mat = calcGame()
       
       const game = new HardGame({matrix:mat.mat,hiddenMatrix:mat.hiddenMat,size:mat.size})
       await game.save()
       games = await HardGame.find({})
+      console.log(games)
 
     }
 

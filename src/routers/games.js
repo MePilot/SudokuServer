@@ -6,13 +6,7 @@ const Sudoku = require('../sudoku.js')
 router.get('/hard1Game', function(req, res) {
     console.log('REQUEST')
     
-    HardGame.findOneRandom(function(err, result) {
-        if (!err) {
-            res.send(result)
-        
-        }
-
-      });
+    
     
   });
 */
@@ -29,21 +23,32 @@ router.get('/hard1Game', function(req, res) {
 
         let game = new Sudoku(size)
         let solutions
+
+        if(Number(diff)==0.4) {
+
+            HardGame.findOneRandom(function(err, result) {
+                if (!err) {
+                    res.send(result)
+                }
         
-        do {
+              });
+            }
+            else {
+                do {
 
-            game.generateBoard()
-            game.hideNumbers(diff)
-            solutions = game.countSolutions(0)
-            console.log(`Number of solutions: ${solutions}`)
-        }
-
-        while(solutions>1)
-
+                    game.generateBoard()
+                    game.hideNumbers(diff)
+                    solutions = game.countSolutions(0)
+                    console.log(`Number of solutions: ${solutions}`)
+                }
+        
+                while(solutions>1)
+                res.send({mat:game.mat, hiddenMat:game.hiddenMat,size:game.size})
+            }
+        
         console.log(req.query.game)
         console.log(size, diff)
       
-        res.send({mat:game.mat, hiddenMat:game.hiddenMat,size:game.size})
     }
 })
 

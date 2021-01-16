@@ -15,7 +15,6 @@ const HardGame = require('./models/hardGame')
 
 require('./db/mongoose')
 
-
 async function fillGames() {
 
   try {

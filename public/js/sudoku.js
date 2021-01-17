@@ -126,7 +126,7 @@ function checkGame() {
     }
 
     function setGameHard() {
-        hintPercent=0.28
+        hintPercent=0.35
         runGame()
     }
 

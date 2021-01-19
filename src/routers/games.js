@@ -24,7 +24,7 @@ router.get('/hard1Game', function(req, res) {
         let game = new Sudoku(size)
         let solutions
 
-        if(Number(diff)==0.35 && size==9) {
+        if(Number(diff)==0.4 && size==9) {
 
             HardGame.findOneRandom(function(err, result) {
                 if (!err) {

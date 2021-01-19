@@ -24,7 +24,7 @@ function calcGame() {
   let c
   do {
     game.generateBoard()
-    game.hideNumbers(0.35)
+    game.hideNumbers(0.4)
     c = game.countSolutions(0)
     console.log(`Number of solutions: ${c}`)
   }
